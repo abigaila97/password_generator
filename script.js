@@ -37,9 +37,35 @@ function passwordRequirements() {
 
   var lowercaseCharacters = confirm('Do you confirm to add lowercase characters? Click OK to accept');
 
-  var numberCharacter = confirm('Do you confirm to add numbers? Click OK to accept');
+  var numberCharacters = confirm('Do you confirm to add numbers? Click OK to accept');
 
   var specialCharacters = confirm('Do you confirm to add special characters? Click OK to accept');
+
+  var passwordChoice = {
+    lenght : length,
+    uppercaseCharacters : uppercaseCharacters,
+    lowercaseCharacters : lowercaseCharacters,
+    numberCharacters : numberCharacters,
+    specialCharacters : specialCharacters,
+  }
+
+  return passwordChoice;
+
+}
+
+function generatePassword() {
+  let characterCodes = lowercaseCodes
+  if (uppercaseCharacters) characterCodes = characterCodes.concat(uppercaseCodes);
+  if (numberCharacters) characterCodes = characterCodes.concat(numberCodes);
+  if(specialCharacters) characterCodes = characterCodes.concat(symbolCodes);
+
+
+  var passwordCharacters = []
+  for (let i = 0; i < length, i++) {
+    var character = characterCodes[Math.floor(Math.random * length)]
+    passwordCharacters.push(String.fromCharCode(character))
+  }
+  return passwordCharacters;
 
 }
 
