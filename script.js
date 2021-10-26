@@ -47,7 +47,7 @@ function passwordRequirements() {
   }
 
   var passwordChoice = {
-    lenght : length,
+    length : length,
     uppercaseCharacters : uppercaseCharacters,
     lowercaseCharacters : lowercaseCharacters,
     numberCharacters : numberCharacters,
@@ -57,6 +57,12 @@ function passwordRequirements() {
   return passwordChoice;
 }
 
+function randomSelect(arr) {
+  var randomIndex = Math.floor(Math.random() * arr.lenght);
+  var randomelement = arr[randomIndex];
+
+  return randomelement;
+}
 
 function generatePassword() {
   var options = passwordRequirements();
@@ -64,7 +70,9 @@ function generatePassword() {
   var possibleChar = [];
   var confirmedChars = [];
 
-
+for (var i = 0; i < options.lenght; i++) {
+  var possibleChar = randomSelect
+}
 }
 
 // Write password to the #password input
