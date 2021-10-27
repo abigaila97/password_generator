@@ -1,9 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var uppercaseCodes = ['A','B','C','D','E','F','G','H','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',];
-var lowercaseCodes = ['a','b','c','d','e','f','g','h','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',];
-var numberCodes = ['1','2','3','4','5','6','7','8','9','0',];
-var symbolCodes = ['@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.',];
+var uppercaseCharacters = ['A','B','C','D','E','F','G','H','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',];
+var lowercaseCharacters = ['a','b','c','d','e','f','g','h','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',];
+var numberCharacters = ['1','2','3','4','5','6','7','8','9','0',];
+var specialCharacters = ['@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.',];
 
 function passwordRequirements() {
   var length = parseInt(
@@ -70,9 +70,29 @@ function generatePassword() {
   var possibleChar = [];
   var confirmedChars = [];
 
-for (var i = 0; i < options.lenght; i++) {
-  var possibleChar = randomSelect
-}
+  if (options.uppercaseCharacters) {
+    possibleChar = possibleChar.concat(uppercaseCharacters);
+    confirmedChars.push(randomSelect(uppercaseCharacters));
+  }
+
+  if (options.lowercaseCharacters) {
+    possibleChar = possibleChar.concat(lowercaseCharacters);
+    confirmedChars.push(randomSelect(lowercaseCharacters));
+  }
+
+  if (options.numberCharacters) {
+    possibleChar = possibleChar.concat(numberCharacters);
+    confirmedChars.push(randomSelect(numberCharacters));
+  }
+
+  if (options.specialCharacters) {
+    possibleChar = possibleChar.concat(specialCharacters);
+    confirmedChars.push(randomSelect(specialCharacters));
+  }
+
+  for (var i = 0; i < options.lenght; i++) {
+    var possibleChar = randomSelect
+  }
 }
 
 // Write password to the #password input
