@@ -70,6 +70,8 @@ function generatePassword() {
   var possibleChar = [];
   var confirmedChars = [];
 
+  // had to check solve for a hint: I didn't have any conditional statements
+
   if (options.uppercaseCharacters) {
     possibleChar = possibleChar.concat(uppercaseCharacters);
     confirmedChars.push(randomSelect(uppercaseCharacters));
@@ -91,8 +93,15 @@ function generatePassword() {
   }
 
   for (var i = 0; i < options.lenght; i++) {
-    var possibleChar = randomSelect
+    var possibleChar = randomSelect(possibleChar);
+    result.push(possibleChar);
   }
+
+  for (var i = 0; i < confirmedChars.length; i++) {
+    result[i] = confirmedChars[i];
+  }
+
+  return result.join();
 }
 
 // Write password to the #password input
